@@ -22,11 +22,19 @@ environment {
                 sh "mvn clean install"
             }
         }
+       
+        stage('Unit Tests') {
+	    // Run Unit tests 
+            steps{
+                sh "mvn -f pom.xml clean test"
+            }
+        }	
+            
     }
 
-    post {
-        always {
-            cleanWs()
-        }
-    }
+    //post {
+       // always {
+         //   cleanWs()
+      //  }
+   // }
 }
